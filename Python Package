@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "didactic-engine"
+version = "1.0.0"
+description = "DIDACTIC-ENGINE — Throne + Dragon + Secret Vault. Rare prime port 14831."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [{name = "Holuwadamilare Comics"}]
+keywords = ["didactic-engine", "throne", "dragon", "secret-vault"]
+dependencies = ["Flask==3.0.3"]
+
+[project.urls]
+Homepage = "http://localhost:14831"
+
+[project.scripts]
+didactic-engine = "app:main"
+
+[tool.setuptools]
+packages = ["src"]
