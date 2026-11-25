@@ -1,0 +1,6 @@
+# Node
+npm install && node server.js
+# Python
+pip install -r requirements.txt && python app.py
+# Visit
+http://localhost:14831
