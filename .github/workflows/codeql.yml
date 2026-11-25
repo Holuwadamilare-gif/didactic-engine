@@ -22,6 +22,11 @@ on:
 jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
+    # Node
+npm install && npm start
+# Python
+pip install . && didactic-engine
+# Visit http://localhost:14831
     # language: [ 'javascript-typescript', 'python', 'go', 'java-kotlin', 'csharp', 'ruby', 'cpp', 'swift' ]Runner size impacts CodeQL analysis time. To learn more, please see:
     #   - https://gh.io/recommended-hardware-resources-for-running-codeql
     #   - https://gh.io/supported-runners-and-hardware-resources
