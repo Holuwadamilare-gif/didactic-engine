@@ -1,0 +1,3 @@
+"""DIDACTIC-ENGINE package — port 14831"""
+__version__="1.0.0"
+PORT=14831
