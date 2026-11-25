@@ -1,0 +1,9 @@
+"mcpServers": {
+  "didactic-engine": {
+    "command": "node",
+    "args": ["src/mcp-server.js"],
+    "env": { "DIDACTIC_ENGINE_PORT": "14831" }
+  },
+  "didactic-filesystem": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", "."] },
+  "didactic-github": { "command": "npx", "args": ["-y", "@modelcontextprotocol/server-github"] }
+}
