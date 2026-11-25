@@ -1,0 +1,34 @@
+{
+  "mcpServers": {
+    "didactic-engine": {
+      "command": "node",
+      "args": [
+        "src/mcp-server.js"
+      ],
+      "env": {
+        "DIDACTIC_ENGINE_PORT": "14831",
+        "PORT": "14831",
+        "HOST": "0.0.0.0"
+      }
+    },
+    "didactic-filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "."
+      ],
+      "env": {}
+    },
+    "didactic-github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": ""
+      }
+    }
+  }
+}
