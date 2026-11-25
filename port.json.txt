@@ -1,0 +1,9 @@
+{
+  "DIDACTIC_ENGINE": {
+    "port": 14831,
+    "host": "0.0.0.0",
+    "protocol": "http",
+    "url": "http://localhost:14831",
+    "note": "Rare prime port - one-time for DIDACTIC-ENGINE"
+  }
+}
