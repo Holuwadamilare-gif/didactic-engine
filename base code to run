@@ -1,0 +1,6 @@
+unzip DIDACTIC-ENGINE-full-starter.zip
+cd DIDACTIC-ENGINE
+npm install && node server.js
+# or
+pip install -r requirements.txt && python app.py
+# Visit http://localhost:14831
