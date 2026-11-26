@@ -1,0 +1,43 @@
+package com.holuwadamilare.didactic;
+
+import com.sun.net.httpserver.HttpServer;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+import java.nio.charset.StandardCharsets;
+
+/**
+ * DIDACTIC-ENGINE — Java / Apache Maven
+ * Throne + Dragon + Secret Vault — Port 14831
+ * Run: mvn package && java -jar target/didactic-engine-1.0.0.jar
+ */
+public class Engine {
+    public static final int PORT = Integer.parseInt(
+        System.getenv().getOrDefault("DIDACTIC_ENGINE_PORT",
+        System.getenv().getOrDefault("PORT", "14831")));
+    public static final String HOST = System.getenv().getOrDefault("HOST", "0.0.0.0");
+
+    public static void main(String[] args) throws IOException {
+        HttpServer server = HttpServer.create(new InetSocketAddress(HOST, PORT), 0);
+        server.createContext("/", ex -> {
+            String json = "{\"engine\":\"DIDACTIC-ENGINE\",\"status\":\"alive\",\"port\":" + PORT + ",\"throne\":\"active\",\"dragon\":\"guarding\"}";
+            send(ex, json);
+        });
+        server.createContext("/vault/status", ex -> {
+            boolean secret = System.getenv("DIDACTIC_SECRET") != null && !System.getenv("DIDACTIC_SECRET").isEmpty();
+            boolean numeric = System.getenv("DIDACTIC_NUMERIC_KEY") != null && !System.getenv("DIDACTIC_NUMERIC_KEY").isEmpty();
+            String json = "{\"secret_configured\":" + secret + ",\"numeric_key_configured\":" + numeric + ",\"port\":" + PORT + "}";
+            send(ex, json);
+        });
+        server.setExecutor(null);
+        server.start();
+        System.out.println("DIDACTIC-ENGINE on http://" + HOST + ":" + PORT);
+    }
+
+    private static void send(com.sun.net.httpserver.HttpExchange ex, String json) throws IOException {
+        byte[] b = json.getBytes(StandardCharsets.UTF_8);
+        ex.getResponseHeaders().set("Content-Type", "application/json");
+        ex.sendResponseHeaders(200, b.length);
+        try (OutputStream os = ex.getResponseBody()) { os.write(b); }
+    }
+}
