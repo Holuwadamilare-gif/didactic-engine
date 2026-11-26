@@ -1,0 +1,22 @@
+DIDACTIC-ENGINE — Apache Maven
+Apache Maven is the default package manager for Java + Java runtime environment.
+
+Package
+groupId: com.holuwadamilare
+artifactId: didactic-engine
+version: 1.0.0
+Java 17, jar, mainClass: com.holuwadamilare.didactic.Engine
+Port: 14831 — http://localhost:14831
+Commands
+mvn clean package
+java -jar target/didactic-engine-1.0.0.jar
+# or
+mvn exec:java
+Routes
+GET / — alive, throne active, dragon guarding
+GET /vault/status — checks secrets are set, never exposes them
+Env
+DIDACTIC_ENGINE_PORT=14831
+PORT=14831
+HOST=0.0.0.0
+
